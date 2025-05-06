@@ -1,10 +1,12 @@
+import { useNavigate } from "react-router";
 import TypeCards from "../../components/Registration/TypeCards";
 import LuxuryBackground from "../../components/UI/LuxuryBackground";
 
 export default function TypeSelection() {
+  const navigate = useNavigate();
+
   const handleTypeSelect = (type) => {
-    console.log("Selected type:", type);
-    // Handle type selection logic here
+    navigate(`/register/${type}`);
   };
 
   return (
@@ -14,16 +16,18 @@ export default function TypeSelection() {
         <div className="mx-auto w-full max-w-6xl">
           <div className="mb-12 text-center">
             <h1 className="mb-4 text-4xl font-bold text-white">
-              Join <span className="text-[#825c17]">Vincitore's</span> Elite Network
+              Join <span className="text-[#825c17]">Vincitore's</span> Elite
+              Network
             </h1>
-            <p className="text-white/80 max-w-2xl mx-auto text-lg">
-              Register as a broker or agent to access our exclusive portfolio of luxury properties worldwide
+            <p className="mx-auto max-w-2xl text-lg text-white/80">
+              Register as a broker or agent to access our exclusive portfolio of
+              luxury properties worldwide
             </p>
           </div>
 
           <div className="rounded-xl border border-white/10 bg-gradient-to-b from-black/40 to-black/60 p-10 shadow-2xl backdrop-blur-lg">
             <div className="mb-8 text-center">
-              <h2 className="text-2xl font-semibold text-white mb-2">
+              <h2 className="mb-2 text-2xl font-semibold text-white">
                 Select Your Registration Type
               </h2>
               <p className="text-white/60">
@@ -31,10 +35,13 @@ export default function TypeSelection() {
               </p>
             </div>
             <TypeCards onSelect={handleTypeSelect} />
-            
-            <div className="mt-10 pt-6 border-t border-white/10 text-center">
-              <p className="text-white/60 text-sm">
-                Need help selecting? <a href="#" className="text-[#825c17] hover:underline">Contact our support team</a>
+
+            <div className="mt-10 border-t border-white/10 pt-6 text-center">
+              <p className="text-sm text-white/60">
+                Need help selecting?{" "}
+                <a href="#" className="text-[#825c17] hover:underline">
+                  Contact our support team
+                </a>
               </p>
             </div>
           </div>

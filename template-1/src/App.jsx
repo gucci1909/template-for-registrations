@@ -2,8 +2,9 @@ import { lazy, Suspense } from "react";
 import { Routes, Route } from "react-router-dom";
 
 const TypeSelection = lazy(() => import("./pages/Registration/TypeSelection"));
-// const MultiStepForm = lazy(() => import('./pages/Registration/'));
-// const Confirmation = lazy(() => import('./pages/Registration/Confirmation'));
+const RegistrationSteps = lazy(
+  () => import("./pages/Registration/RegistrationSteps"),
+);
 
 export default function App() {
   return (
@@ -17,8 +18,7 @@ export default function App() {
       >
         <Routes>
           <Route path="/" element={<TypeSelection />} />
-          {/* <Route path="/register/form" element={<MultiStepForm />} /> */}
-          {/* <Route path="/register/confirmation" element={<Confirmation />} /> */}
+          <Route path="/register/:type" element={<RegistrationSteps />} />
         </Routes>
       </Suspense>
     </div>
