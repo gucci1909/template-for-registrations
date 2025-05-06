@@ -4,8 +4,9 @@ import { useEffect, useState } from 'react';
 export default function LuxuryBackground() {
   const [currentBg, setCurrentBg] = useState(0);
   const bgImages = [
-    '/luxury-buildings/bg1.jpg',
-    '/luxury-buildings/bg2.jpg',
+    '/premium_photo-1661916762370-4768aa1fc4c4.avif',
+    '/photo-1489516408517-0c0a15662682.avif',
+    '/photo-1669146907364-6cf31db559b0.avif'
   ];
 
   useEffect(() => {
@@ -17,6 +18,7 @@ export default function LuxuryBackground() {
 
   return (
     <div className="fixed inset-0 -z-10 overflow-hidden">
+      <div className="absolute inset-0 bg-black/60 z-10"></div>
       {bgImages.map((img, index) => (
         <div
           key={index}
@@ -24,11 +26,12 @@ export default function LuxuryBackground() {
         >
           <img
             src={img}
-            alt="Luxury Building Background"
-            className="w-full h-full object-cover blur-sm brightness-50"
+            alt="Luxury Property Background"
+            className="w-full h-full object-cover"
           />
         </div>
       ))}
+      <div className="absolute inset-0 z-20 border-[12px] border-white/5 pointer-events-none"></div>
     </div>
   );
 }
